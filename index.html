@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 - DOM</title>
+    <link rel="stylesheet" type="text/css" href="./css/game.css" media="all" />
+
+    <!-- Script Tag to link the JS files -->
+    <script src="game.js"></script>
+
+    <script>
+        // Declares a global variable
+        var bear;
+        var bees;
+        var updateTimer;
+        var lastStingTime;
+        var started = false;
+    </script>
+
+    <!-- NoScript tag to display if the client side doesn't support JavaScript -->
+    <noscript>
+        Warning - JavaScript is Disabled.
+        For full functionality of this page, it is necessary to enable JavaScript.
+    </noscript>
+</head>
+<body onload="start();">
+
+    <div id="title"> <!-- Contains the rules of the game and configuration input fields -->
+        <h1>Help the bear escape the bees</h1>
+        <p>Bear tried to avoid being stung by <input type="text" id="nbBees" value="1" size="3"> bees by running and jumping. The objective is to have as less stings as possible!</p>
+        <p>You can adjust the bees' speed <input type="text" id="speedBees" value="10" size="3"> px/ms
+        <br><p>and the bear's speed <input type="text" id="speedBear" value="10" size="3"> px/ms
+        <br> and the refresh period <input type="text" id="periodTimer" value="10" size="3"> ms </p>
+        <h2>Press <kbd>left</kbd>, <kbd>right</kbd>, <kbd>up</kbd>, <kbd>down</kbd> keys to move the bear</h2>
+        <!-- <button onclick="restart();">Restart</button> -->
+        <button onclick="addBee();">Add Bee</button>
+    </div>
+
+    <div id="scores"> <!-- Shows the number of stings and the best duration -->
+        <table>
+            <tr>
+                <td>
+                    <p>Stings: [<span id="hits">0</span>]</p>
+                </td>
+                <td>
+                    <p>Best duration: [<span id="duration">?</span>]</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="board"> <!-- Contains the bear image and the bee image -->
+        <img src="./images/bear.gif" id="bear" alt="bear">
+    </div>
+</body>
+</html>
